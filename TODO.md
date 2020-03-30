@@ -196,6 +196,36 @@ Route       | Controller              | Model
 
 Make sure to return to the controller what it **needs**. Take a look at the `res.send()` or `res.render()` parameters.
 
+As a sample, this is what the `addStudent(req, res)` function would look like:
+```JavaScript
+exports.addStudent = function(req, res) {
+  var student = {
+    name: req.body.name,
+    id: req.body.id,
+    img: `img/${req.body.gender}.png`
+  };
+
+  studentModel.create(student, function(err, student) {
+    var result;
+
+    if (err) {
+      console.log(err.errors);
+
+      result = { success: false, message: "Student was not created!" }
+      res.send(result);
+    } else {
+      console.log("Successfully added student!");
+      console.log(student);
+
+      result = { success: true, message: "Student created!" }
+
+      res.send(result);
+    }
+  });
+};
+```
+The database callback results can be passed to the controller for possible error handling or it can be handled by the model and custom error messages will be sent already from the model. It's totally up to you. 😉
+
 ## The End
 You've successfully refactored the code (partially) to follow the MVC standards. Tedious? Yes. Confusing? A bit (too many callbacks!).
 

@@ -5,19 +5,22 @@ $(document).ready(function() {
     var imgCol = document.createElement('div');
     var nameCol = document.createElement('div');
 
+    var imgWrapper = document.createElement('p');
     var img = document.createElement('img');
-    var nameHeading = document.createElement('h4');
+    var nameHeading = document.createElement('p');
     var idnum = document.createElement('p');
 
     $(rowDiv).addClass("row student");
-    $(imgCol).addClass("col-sm-2 center");
-    $(nameCol).addClass("col-sm-10");
+    $(imgCol).addClass("col s2");
+    $(nameCol).addClass("col s10");
 
     $(img).attr("src", item.img);
     $(nameHeading).text(item.name);
+    $(nameHeading).addClass("studentname");
     $(idnum).text(item.id);
 
-    imgCol.append(img);
+    $(imgWrapper).append(img);
+    imgCol.append(imgWrapper);
 
     nameCol.append(nameHeading);
     nameCol.append(idnum);

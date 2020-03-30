@@ -12,17 +12,22 @@ span.glyphicon {
   padding-left: 0.75em;
 }
 
-h4 {
-  color: #006400
-}
-
 img {
-  height: 60px;
-  margin: auto;
+  height: 70px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
 }
 
 .student {
   margin-bottom: 0.5em;
+}
+
+.studentname {
+  font-weight: 700;
+  color: #00796b;
+  font-size: 1.5em;
+  margin-bottom: 0;
 }
 
 hr {

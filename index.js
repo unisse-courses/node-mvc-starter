@@ -35,8 +35,6 @@ app.listen(port, function() {
   console.log('App listening at port '  + port)
 });
 
-
-
 // Home route
 app.get('/', function(req, res) {
   res.render('home', { title: 'Home' });
@@ -80,13 +78,11 @@ app.post('/addStudent', function(req, res) {
       res.send(result);
     }
   });
-
 });
 
 // Finds the students matching the name query from the database and returns the array
 app.post('/searchStudents', function(req, res) {
   var pattern = "^" + req.body.name;
-
   studentModel.find({ name: { $regex: pattern } }, function(err, students) {
     console.log(students);
     res.send(students);

@@ -45,7 +45,7 @@ $(document).ready(function() {
       gender: gender
     };
 
-    $.post('addStudent', newStudent, function(data, status) {
+    $.post('/students/add', newStudent, function(data, status) {
       console.log(data);
 
       if (data.success) {
@@ -70,7 +70,7 @@ $(document).ready(function() {
     // Get the data from the form
     var name = $('#searchName').val();
 
-    $.post('searchStudents', { name: name }, function(data, status) {
+    $.post('/', { name: name }, function(data, status) {
       console.log(data);
 
       var studentListContainer = $('#studentList');
